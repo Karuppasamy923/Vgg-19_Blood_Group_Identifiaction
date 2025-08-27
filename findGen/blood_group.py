@@ -6,11 +6,13 @@ from tensorflow.keras.layers import Dense
 from tensorflow.keras.applications import ResNet50
 from tensorflow.keras.applications.resnet50 import preprocess_input
 from keras.models import Model
+import kagglehub
 
 app = Flask(__name__)
 
 # Mapping dictionary for blood group names
-file_path = '/home/karuppasamy/Downloads/archive (1)/dataset_blood_group'
+# file_path = '/home/karuppasamy/Downloads/archive (1)/dataset_blood_group'
+file_path = kagglehub.dataset_download("rajumavinmar/finger-print-based-blood-group-dataset")
 name_class = os.listdir(file_path)
 print("List of blood group names:", name_class)  # Print the list of blood group names
 
