@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Group Identification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* background-image: url('https://scontent.xx.fbcdn.net/v/t1.15752-9/438115853_454271750589199_1055235032389431579_n.jpg?stp=dst-jpg_p403x403&_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=UoCh76MBkXEQ7kNvgFumuEs&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QHwFcop6XGMGkyXg5xfhR073bzkD-dvZq4gG5-Hj6McLQ&oe=665C1E36'); */
+            background-image: url('fig.jpg');
+            background-size: 2000px 1400px;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            margin-left: auto; /* Center the container horizontally */
+            margin-right: auto;
+            margin-top: 8%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            width: 80%; /* Adjust width for responsiveness */
+            max-width: 300px; /* Limit maximum width */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 50%; /* Adjust width for responsiveness */
+            max-width: 200px; /* Limit maximum width */
+            /* margin-top: 5px; */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        p.message {
+            text-align: center;
+            color: #ff0000;
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media only screen and (max-width: 600px) {
+            .container {
+                margin: 20px auto; /* Adjust margin for smaller screens */
+            }
+            input[type="file"], input[type="submit"] {
+                width: 100%; /* Adjust width for smaller screens */
+                max-width: none; /* Remove maximum width limit */
+            }
+        }
+
+        /* Style for fingerprint scanner UI */
+        .scanner-ui {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Blood Group Identification</h1>
+        <form id="uploadForm" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+                <label for="file" style="flex: 1; margin-right: 10px;">Upload Image:</label>
+                <input type="file" name="file" id="file" accept=".png, .jpg, .jpeg, .BMP" style="flex: 2; margin-right: 24%;" required>
+            </div>            
+            <div style="text-align: center;">
+                <input type="submit" value="Upload Image">
+            </div>
+        </form>               
+        <hr>
+        <form id="fingerprintForm" method="POST">
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+                <label for="fingerprint">Scan Fingerprint:</label>
+                <button type="button" id="scanButton" onclick="showScanner()">Scan Fingerprint</button>
+            </div>
+            <div class="scanner-ui" id="scannerUI">
+                <!-- Placeholder for scanner UI -->
+                <img src="https://images.freeimages.com/clg/istock/previews/9115/91153579-id-app-icon-fingerprint.jpg" alt="Scanner UI" width="100" height="100">
+            </div>
+            <div class="scanner-ui" id="doneMessage">
+                <p>Done!</p>
+            </div>
+            <input type="hidden" name="fingerprintData" id="fingerprintData">
+            <div>
+                <br>
+                <input type="submit" value="Submit Fingerprint" id="submitFingerprint" disabled>
+            </div>
+        </form>
+        <p class="message" id="scanErrorMessage"></p>
+    </div>
+
+    <script>
+        function showScanner() {
+    // Placeholder function for showing the scanner UI
+    // You can implement your logic for showing the scanner UI here
+
+    // Show the scanner UI and hide the scan button
+    document.getElementById("scanButton").style.display = "none";
+    document.getElementById("scannerUI").style.display = "block";
+
+    // Simulate scanning process (setTimeout is used as a placeholder)
+    setTimeout(function() {
+        // Placeholder function for capturing fingerprint
+        // You can implement logic to interact with the mobile fingerprint sensor here
+        // Once the fingerprint is captured, update the image source and enable the submit button
+        var fingerprintImageData = "/home/Downloads/kavil-B.BMP"; // Replace with the actual path to the captured image
+        document.getElementById("fingerprintImage").src = fingerprintImageData;
+        document.getElementById("fingerprintData").value = fingerprintImageData;
+        document.getElementById("scannerUI").style.display = "none"; // Hide the scanner UI
+        document.getElementById("doneMessage").style.display = "block"; // Show "Done" message
+        document.getElementById("submitFingerprint").disabled = false; // Enable the submit button
+    }, 3000); // 3000 milliseconds (3 seconds) is just for demonstration
+}
+
+
+        function validateForm() {
+            var fileInput = document.getElementById('file');
+            if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+                alert('Please upload an image.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
