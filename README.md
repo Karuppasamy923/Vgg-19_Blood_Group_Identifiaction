@@ -2,24 +2,26 @@ Fingerprint-Based Blood Group Identification using VGG-19 and Flask
 
 This project is a web-based application that predicts a person's blood group from a fingerprint image using a VGG-19 deep learning model. The application is built using Flask framework, and the frontend is created with HTML and CSS.
 
-📌 Features
+## 📌 Features
 
-✅ Upload a fingerprint image via the web interface
-✅ Predict the blood group using a trained VGG-19 model
-✅ Simple, responsive UI using raw HTML & CSS
-✅ Uses Flask for backend and TensorFlow/Keras for model inference
+✅ Upload a fingerprint image via the web interface  
+✅ Predict the blood group using a trained VGG-19 model  
+✅ Simple, responsive UI using raw HTML & CSS  
+✅ Uses Flask for backend and TensorFlow/Keras for model inference  
 
-📂 Project Structure
+
+## 📂 Project Structure
+
 Fingerprint-BloodGroup-Identification/
 │
 ├── templates/
-│   ├── index.html        # Upload page
-│   ├── result.html       # Result page
+│ ├── index.html # Upload page
+│ ├── result.html # Result page
 │
-├── uploads/             # Stores uploaded images
-├── vgg-19.py            # VGG-19 model training script
-├── blood_group.py       # Flask application (main file)
-├── model_blood_group_detection.h5  # Trained model weights
+├── uploads/ # Stores uploaded images
+├── vgg-19.py # VGG-19 model training script
+├── blood_group.py # Flask application (main file)
+├── model_blood_group_detection.h5 # Trained model weights
 ├── README.md
 └── requirements.txt
 
