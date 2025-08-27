@@ -12,18 +12,20 @@ This project is a web-based application that predicts a person's blood group fro
 
 ## 📂 Project Structure
 
+```text
 Fingerprint-BloodGroup-Identification/
 │
 ├── templates/
-│ ├── index.html # Upload page
-│ ├── result.html # Result page
+│   ├── index.html                 # Upload page
+│   ├── result.html                # Result page
 │
-├── uploads/ # Stores uploaded images
-├── vgg-19.py # VGG-19 model training script
-├── blood_group.py # Flask application (main file)
+├── uploads/                       # Stores uploaded images
+├── vgg-19.py                      # VGG-19 model training script
+├── blood_group.py                 # Flask application (main file)
 ├── model_blood_group_detection.h5 # Trained model weights
 ├── README.md
 └── requirements.txt
+
 
 ⚙️ Tech Stack
 
